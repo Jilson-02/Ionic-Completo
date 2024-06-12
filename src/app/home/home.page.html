@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Login
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,38 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Login</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <form action="/login" method="POST">
+      <ion-item>
+          <ion-input type="email" #email labelPlacement="floating">
+            <div slot="label">
+              Email <ion-text color="danger">(Required)</ion-text>
+            </div>
+          </ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-input type="password" #password labelPlacement="floating">
+            <div slot="label">
+              Password <ion-text color="danger">(Required)</ion-text>
+            </div>
+          </ion-input>
+        </ion-item>
+      <ion-button (click)="login(email, password)" expand="block" >
+      <ion-icon slot="start" name="log-in"></ion-icon>
+      Iniciar sesión</ion-button>
+
+      <ion-button expand="block" routerLink="/registro" color="primary">
+        <ion-icon slot="start" name="person-add-outline"></ion-icon>
+        Registrarse
+      </ion-button>
+      
+
+  
+  </form>
   </div>
 </ion-content>
